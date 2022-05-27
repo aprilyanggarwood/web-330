@@ -1,0 +1,164 @@
+<!-- 
+    Title: index.html
+    Author: April Yang
+    Date: 5/26/2022
+    Description: The landing page for WEB 330 assignments
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEB 330 – Enterprise JavaScript II</title>
+    <!-- external CSS stylesheet -->
+    <link rel="stylesheet" href="site.css" />
+    <link rel="stylesheet" href="theme.css" />
+    <!-- Google fonts for Oswald -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font-awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- Link to external JS file -->
+    <script type="application/javascript" src="theme.js"></script>
+  </head>
+  <body class="light-theme">
+    <!-- Icon to switch between light and dark mode -->
+    <i
+      onclick="toggleMode(this)"
+      id="icon-mode"
+      class="fa fa-toggle-off pull-right"
+      style="font-size: 28px"
+      ><span id="icon-text"></span
+    ></i>
+
+    <main id="container">
+      <h1>April Yang’s Landing Page</h1>
+      <h2>WEB 330 Enterprise JavaScript II</h2>
+      <hr />
+      <h3>Weekly Assignments</h3>
+      <!--Unordered List of Weekly Assignments with links to each assignment-->
+      <ul>
+        <li>
+          <a href="" target="blank">Assignment 2.2</a>
+        </li>
+        <li>
+          <a href="" target="blank">Assignment 3.2</a>
+        </li>
+        <li>
+          <a href="" target="blank">Assignment 4.2</a>
+        </li>
+        <li>
+          <a href="" target="blank">Assignment 5.2</a>
+        </li>
+        <li>
+          <a href="" target="blank">Assignment 5.2</a>
+        </li>
+        <li>
+          <a href="" target="blank">Assignment 6.2</a>
+        </li>
+        <li>
+          <a href="" target="blank">Assignment 7.2</a>
+        </li>
+        <li>
+          <a href="" target="blank">Assignment 8.2</a>
+        </li>
+      </ul>
+      <h3>Projects</h3>
+      <!-- Unordered List of Projects with links to each project-->
+      <ul>
+        <li>
+          <a href="" target="blank">Personal Portfolio</a>
+        </li>
+        <li><a href="" target="blank">WEB 231's Landing Page</a></li>
+      </ul>
+      <h4>Important Links</h4>
+      <!-- Unordered List of Important Links -->
+      <ul>
+        <li>
+          <a href="https://github.com/buwebdev/web-330" target="blank"
+            >WEB 330’s GitHub Repository</a
+          >
+        </li>
+        <li>
+          <a href="https://bruinconnect.bellevue.edu/" target="blank"
+            >BRUIN Connect</a
+          >
+        </li>
+        <li>
+          <a href="https://validator.w3.org/" target="blank"
+            >W3C HTML Validator</a
+          >
+        </li>
+        <li>
+          <a href="http://jigsaw.w3.org/css-validator/" target="blank"
+            >W3C CSS Validator</a
+          >
+        </li>
+        <li>
+          <a href="https://www.w3schools.com/html/" target="blank"
+            >HTML Tutorial</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.w3schools.com/js/js_best_practices.asp"
+            target="blank"
+            >JavaScript Best Practices</a
+          >
+        </li>
+      </ul>
+    </main>
+
+    <script>
+      // Called function from theme.js
+      setDefaultTheme();
+
+      /**
+       * Onclick function toggles between light theme and dark theme
+       * @param x (this instance)
+       * Reference: https://www.w3schools.com/howto/howto_js_toggle_dark_mode.asp
+       */
+      function toggleMode(X) {
+        let colorTheme = document.body.classList; // get the body's CSS class
+        let iconMode = X.classList; // get the current classes assigned to the triggered button
+        console.log(colorTheme); //testing purposes
+        // console.log(iconMode); //testing purposes
+        /**
+         * If the current body class is set to the light-theme, update the user's preference to the dark-theme in the browsers
+         * local storage.
+         * Light theme is the default theme
+         */
+        if (colorTheme.value === "light-theme") {
+          localStorage.clear();
+          localStorage.setItem("mode", "dark-theme");
+          localStorage.setItem("iconMode", "fa-toggle-on");
+          localStorage.setItem("iconText", "Dark Mode");
+
+          console.log(localStorage);
+        } else {
+          /**
+           * If the current body class is set to the dark-theme, update the user's preference to the light-theme in the browsers
+           * local storage.
+           */
+          localStorage.clear();
+          localStorage.setItem("mode", "light-theme");
+          localStorage.setItem("iconMode", "fa-toggle-off");
+          localStorage.setItem("iconText", "Light Mode");
+        }
+
+        // Apply the updated selection to the HTML page elements
+        colorTheme.value = localStorage.getItem("mode");
+        iconMode.value = `fa ${localStorage.getItem("iconMode")} pull-right`;
+        document.getElementById("icon-text").innerHTML =
+          localStorage.getItem("iconText");
+      }
+    </script>
+  </body>
+</html>

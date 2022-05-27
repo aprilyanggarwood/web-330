@@ -1,0 +1,86 @@
+/**
+    Title: site.css
+    Author: April Yang
+    Date: 5/26/2022
+    Description: Global stylesheet
+ */
+
+body {
+    font-family: 'Oswald', Verdana, Arial, sans-serif;
+  }
+
+#container {
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 10px;
+}
+
+/* Styling for toggle icon */
+#icon-mode:hover {
+    cursor: pointer;
+}
+
+#icon-text {
+    padding-left: 10px;
+}
+
+.pull-right {
+    float: right;
+}
+
+/**
+    Styles added per the instructions in the Web 330 HTML, CSS, and JavaScript Requirements document;
+    Exhibit D.
+ */
+.assign-container {
+    padding: 10px;
+}
+
+.assign-content {
+    width: 600px;
+    margin: 3% auto 0;
+}
+
+.assign-results-text {
+    text-align: center;
+    font-size: 28px;
+}
+
+/**
+    Styles added per the requirements in the Web 330 HTML, CSS, and JavaScript Requirements document.
+ */
+.app-header {
+    text-align: center;
+    font-weight: 400;
+    border: none;
+    color: inherit;
+    background-color: inherit;
+}
+
+.return-home {
+    color: #4F3674;
+    text-decoration: none;
+}
+
+.return-home:hover {
+    background-color: #D6A800;
+    color: #4F3674;
+}
+
+.return-home:visited {
+    color: #3c275a;
+}
+
+.form {
+    display: inline-grid;
+    grid-template-columns: auto;
+}
+
+.form-field {
+    padding: 20px;
+}
+
+.full-width {
+    width: 100%;
+}
