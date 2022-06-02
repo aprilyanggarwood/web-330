@@ -90,14 +90,21 @@ h4 {
 
 /* set up the styling for classes as class doc requested  */
 /* will use the styling code below in later assignments */
-.card {
-  background-color: var(--card-background-color);
-  
-}
+/* styling two cards and center them by margin. */
+
 
 .card-title {
   color: var(--card-title-color);
+  text-align: center;
+ margin-bottom: 15px;
+ /* color:#4F3674; */
+ font-weight: 400;
+ font-size: 2em;
  
+}
+
+.card-content {
+    padding: 2px 16px;
 }
 
 .btn-primary {
@@ -112,7 +119,10 @@ h4 {
 
 .input {
   border: 1px solid var(--input-border-color);
-  
+   padding: 12px 20px;
+    margin: 8px 0;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 
 .drop-down-menu {

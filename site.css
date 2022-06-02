@@ -34,6 +34,10 @@ body {
     Exhibit D.
  */
 .assign-container {
+    
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 0px;
     padding: 10px;
 }
 
@@ -84,3 +88,36 @@ body {
 .full-width {
     width: 100%;
 }
+
+
+
+/* give paddings and margins to center the card containers */
+.card-container {
+    /* padding: 2px 16px; */
+    /* margin-right:20px;
+    margin-left:20px; */
+      background-color: var(--card-background-color);
+    /* Add shadows to cards. */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+     /* margin-right:300px;
+     margin-left:300px; */
+     width: 600px;
+
+}
+
+/* use margin left to remove the return home link to under the second card. */
+.return-home {
+margin-left: 420px;
+}
+
+.btn {
+    margin-top: 20px;
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #4F3674;
+    color: white;
+}
+
