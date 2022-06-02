@@ -31,16 +31,15 @@
             <div class="form">
               <div class="form-field">
                 <label for="txtPhrase">Phrase value:</label>
-                <input
-                  type="text"
-                  class="input"
-                  id="txtPhrase"
-                  name="phraseValue"
-                />
+                <input type="text" class="input" id="txtPhrase" name="" />
               </div>
 
               <div class="form-field">
-                <button class="btn btn-primary full-width" id="btnCheckPhrase">
+                <button
+                  class="btn btn-primary full-width"
+                  id="btnCheckPhrase"
+                  onclick="checkPhrase()"
+                >
                   Check Phrase
                 </button>
               </div>
@@ -55,12 +54,9 @@
 
     <div class="assign-container">
       <div class="assign-content card-container">
-        <!-- <div class="card"> -->
         <div class="card-title">Palindrome Results</div>
-        <div class="card-content assign-results-text">
-          Results from the form submission will go here...
-        </div>
-        <!-- </div> -->
+        <div class="card-content" id="assign-results-header"></div>
+        <div class="card-content assign-results-text" id="assign-results"></div>
       </div>
     </div>
     <script src="./palindrome.js"></script>
