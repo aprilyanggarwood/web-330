@@ -26,8 +26,9 @@
        
 <div class="card-container-menu">
         <div class="card-title">Restaurant Menu</div>
-        <div class="grid-container">
 
+        <!-- designs card container in grid format -->
+        <div class="grid-container">
         <div class="card-container">
           <div class="card-title">Beverages</div>
           <div class="card-content" id="beverages">
@@ -101,30 +102,28 @@
           </div>
           </div>
           </div>
-          
-          
-
             
     <div class="break"></div>
     <!-- Return link back to the WEB-231 landing page -->
     <a class="return-home" href="../index.html">Return</a>
-
-    <div class="assign-container card-container-menu">
-      
+    
+    <!-- Order summary card will display the total information -->
+    <div class="assign-container card-container-menu">   
         <div class="card-title">Order Summary</div>
         <div class="card-content assign-results-text" id="order-total"></div>
       </div>
     
-    <!-- external JavaScript file -->
+   
     <script type="module"> 
    
-    
+     // Importing classes from the index.js file.
    import { Bill, Beverage, Appetizer, MainCourse, Dessert } from './index.js';
     console.log("Inline module!");
 
+    // Creates onclick function to trigger btnOrder ID.
     document.getElementById("btnOrder").onclick = function(){
 
-   
+   // Sets up variables for each menu item input.
      const beveragesEL = document.getElementById("beverages")
      const beverages = beveragesEL.getElementsByTagName("input")
      const appetizersEL = document.getElementById("appetizers")
@@ -134,8 +133,11 @@
      const dessertsEL = document.getElementById("desserts")
      const desserts = dessertsEL.getElementsByTagName("input")
 
+     // New Bill class instance created.
      let bill = new Bill();
       console.log(bill);
+
+    // doc notes: using the for loop and an if statement that checks if the looped over value is checked. If the item is checked, call the appropriate add function from the Bill class and pass-in the name and value.
      for (let beverage of beverages){
        if (beverage.checked){
           bill.addBeverage (new Beverage(beverage.name,beverage.value))
@@ -162,12 +164,9 @@
       }
     }
 
+    // Display string with the total price information in the order-total ID dive.
     let orderTotal = document.getElementById("order-total")
           orderTotal.innerHTML += `Your order total is ${bill.getTotal()}`
-
-  
-
-
 }
     </script>
    
