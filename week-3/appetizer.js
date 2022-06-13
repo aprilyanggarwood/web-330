@@ -6,7 +6,7 @@
 */
 
 // Import product class from product.js
-import { Product } from "./product";
+import { Product } from "./product.js";
 
 // Create Appetizer class and export module
 export class Appetizer extends Product {
