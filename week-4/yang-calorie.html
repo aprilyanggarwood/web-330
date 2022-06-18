@@ -1,0 +1,151 @@
+<!--
+  Title: Assignment 2.2 - Palindrome APP
+  Author: April Yang
+  Date: 06/01/2022
+  Description: index.html for web-330 Assignment 2.2 - Palindrome APP
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>WEB 330 - Enterprise JavaScript II</title>
+    <!-- external CSS stylesheet -->
+     <link rel="stylesheet" type="text/css" href="../theme.css" />
+    <link rel="stylesheet" type="text/css" href="../site.css" />
+    <link rel="stylesheet" href="./yang-calorie.css" />
+    <!-- Google fonts for Oswald -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font-awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    
+  </head>
+  
+  <body class="light-theme">
+    <i
+      onclick="toggleMode(this)"
+      id="icon-mode"
+      class="fa fa-toggle-off pull-right"
+      style="font-size: 28px"
+      ><span id="icon-text"></span
+    ></i>
+    <div class="assign-container">
+      <h1 class="app-header">Welcome to the Calorie App!</h1>
+      <div class="assign-content">
+        <!-- the first card contains a input form -->
+        <div class="card-container">
+          <div class="card-title">Calorie Search Form</div>
+          <div class="card-content">
+            <div class="form">
+              <div class="form-field">
+                <label for="txtPhrase">Enter a food item:</label>
+                <input
+                  type="text"
+                  class="input"
+                  id="txtFoodItem"
+                  name="txtFoodItem"
+                />
+                <br />
+                <span id="foodList"></span>
+              </div>
+              <div class="form-field">
+                <!-- Button for active function  -->
+                <button
+                  class="btn btn-primary full-width"
+                  id="btnSearch"
+                  "
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+   
+    <div class="break"></div>
+    <!-- Return link back to the WEB-231 landing page -->
+    <a class="return-home" href="../index.html">Return</a>
+
+    <!-- <div class="assign-container"> -->
+      <!-- the second card for displaying palindrome results.   -->
+      <div class="assign-content card-container">
+        <div class="card-title">Search Results</div>
+        <!-- <div class="card-content" id="assign-results-header"></div>
+        <div class="card-content assign-results-text" id="searchResults"></div> -->
+        <div class="card-content"  id="searchResults"> </div>
+       
+        <!-- <div class="card-content" id="assign-results-header"></div>
+        <div class="card-content assign-results-text" id="searchResults"></div> -->
+      
+    </div>
+    </div>
+    </div>
+    <!-- external JavaScript file -->
+  <script type="application/javascript" src="../theme.js"></script>
+    <script type="module">
+
+      setSelectedTheme();
+
+       import { CalorieConverter } from './calorie-converter.js';
+       
+      let txtFoodItemEl = document.getElementById("txtFoodItem")
+
+      document.getElementById("btnSearch").onclick = ()=> {
+    
+      let txtFoodItem = txtFoodItemEl.value.toLowerCase();
+      // Foods variable set equal to inputted value from user.
+      // foods holds array of objects from static method
+      let foods = CalorieConverter.find(txtFoodItem)
+
+     let tableData = `
+                 <table class="table">
+                    <th>Name</th>
+                    <th>Calories</th>
+                    <tbody class="table-hover">`;
+            for (let foodItem of foods) {
+                tableData += `<tr>
+                    <td>${foodItem.name}</td>
+                    <td>${foodItem.calories}</td>
+                    </tr>`;
+            }
+            document.getElementById('searchResults').innerHTML =
+                tableData + ` </tbody></table>`;
+          
+          // End HTML Table Template
+    document.getElementById("searchResults").innerHTML =  tableData + ` </tbody></table>`;
+   };
+
+    // Get the input field
+let input = document.getElementById("txtFoodItem");
+// Execute a function when the user presses a key on the keyboard
+input.addEventListener("keyup", (event) => {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("btnSearch").click();
+  }
+});
+
+ const foodList = CalorieConverter.data;
+
+ let foodListData = `<i>(EX: `;
+
+  for ( let foodName of foodList) {
+       foodListData += foodName.name + ", ";
+  }
+      
+   document.getElementById("foodList").innerHTML = foodListData.slice(0, -2) + ")</li>";
+      
+
+    </script>
+  </body>
+</html>
