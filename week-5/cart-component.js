@@ -5,13 +5,13 @@
   Description: 
 */
 
-export class CartComponent extends HTMLElement {
+class CartComponent extends HTMLElement {
   constructor() {
     super();
   }
 
   connectedCallback() {
-    this.innerHTM = `<i id="cartIcon" class="fa fa-shopping-cart"></i> (<span id='cart-count'></span>)
+    this.innerHTM = `<i id="cartIcon" class="fa-solid fa-cart-shopping"></i> (<span id='cart-count'></span>)
     `;
   }
 }

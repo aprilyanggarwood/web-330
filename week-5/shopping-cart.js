@@ -7,23 +7,28 @@
 
 export class ShoppingCart {
   constructor() {
-    this.products = [];
+    this._products = [];
   }
 
   count() {
-    return this.products.length;
+    return this._products.length;
   }
 
-  add(product) {
-    this.products.push(product);
+  add(products) {
+    this._products.push(products);
+  }
+
+  // iterator function that will yield the results of the product array
+  *iterator() {
+    for (let product of this._products) yield product;
   }
 
   // iterator
-  *[Symbol.iterator]() {
-    for (let product of products) {
-      yield product;
-    }
-  }
+  // *[Symbol.iterator]() {
+  //   for (let product of products) {
+  //     yield product;
+  //   }
+  // }
 
   // *[Symbol.iterator]() {
   //     yield* this.products;

@@ -20,9 +20,13 @@
       rel="stylesheet"
     />
     <!-- Font-awesome CDN -->
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     />
   </head>
 
@@ -38,10 +42,11 @@
     <div class="assign-container">
       <h1 class="app-header">Welcome to Bob’s Automotive Repair Shop!</h1>
       <div class="assign-content">
-        <!-- the first card contains a input form -->
+        <!-- -->
         <div class="card-container">
           <div class="card-title">
             Product Listing <br />
+            <!--component comes from cart-component.js to display the shopping car icon-->
             <cart-component></cart-component>
           </div>
 
@@ -59,7 +64,6 @@
                 <i id="cart-message"
                   >To view your shopping cart click on the cart icon</i
                 >
-                <!-- <span id="foodList"></span> -->
               </div>
               <div class="form-field">
                 <!-- Button for active function  -->
@@ -85,17 +89,19 @@
     </div>
     <!-- external JavaScript file -->
     <script src="../theme.js"></script>
+    <script src="./cart-component.js"></script>
     <script type="module">
       // Call Css Theme
       setSelectedTheme();
 
-      // Import Calorie converter class
+      // Import
 
       import { Product } from "./product.js";
       import { ShoppingCart } from "./shopping-cart.js";
 
       let shoppingCart = new ShoppingCart();
 
+      // set product objects in the products array.
       function setCartCount() {
         let cartCount = document.getElementById("cart-count");
         cartCount += shoppingCart.count();
@@ -103,8 +109,8 @@
 
       setCartCount();
 
-      // Button Click handler
-      document.getElementById("btnAddProduct").onclick = () => {
+      // Button click to add products
+      document.getElementById("btnAddProduct").onclick = function () {
         let productList = document.getElementById("productList");
         let product = productList.options[productList.selectedIndex];
 
@@ -115,7 +121,8 @@
         }
       };
 
-      document.getElementById("cartIcon").onclick = () => {
+      // shopping cart icon onclick and display table in shoppingCart ID
+      document.getElementById("cartIcon").onclick = function () {
         let cartDisplayTable = `
               <table class="table">
                   <tr>
@@ -125,16 +132,17 @@
                   </tr>
                       <tbody class="table-hover">
               `;
-        for (let products of shoppingCart) {
+        for (let product of shoppingCart.iterator()) {
           cartDisplayTable += `
                   <tr>
-                      <td>${products.id}</td>
-                      <td>${products.name}</td>
-                      <td>${products.price}</td>
+                      <td>${product.id}</td>
+                      <td>${product.name}</td>
+                      <td>${product.price}</td>
                   </tr>`;
         }
-        document.getElementById("shoppingCart").innerHTML =
-          cartDisplayTable + `</tbody ></table>`;
+        cartDisplayTable += "<tbody></table>";
+
+        document.getElementById("shoppingCart").innerHTML = cartDisplayTable;
       };
     </script>
   </body>
