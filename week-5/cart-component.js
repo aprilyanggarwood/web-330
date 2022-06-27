@@ -2,7 +2,7 @@
   Title: cart-component.js
   Author: April Yang
   Date: 06/23/2022
-  Description: 
+  Description: Cart component for index.html
 */
 
 class CartComponent extends HTMLElement {

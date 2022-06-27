@@ -19,15 +19,11 @@
       href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Font-awesome CDN -->
-    <!-- <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    /> -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    />
+    <!-- Font-awesome -->
+    <script
+      src="https://kit.fontawesome.com/dd89b7461c.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body class="light-theme">
@@ -49,6 +45,8 @@
             <!--component comes from cart-component.js to display the shopping car icon-->
             <cart-component></cart-component>
           </div>
+
+          <cart-component></cart-component>
 
           <div class="card-content">
             <div class="form">
@@ -101,7 +99,7 @@
 
       let shoppingCart = new ShoppingCart();
 
-      // set product objects in the products array.
+      // Set items into shopping cart
       function setCartCount() {
         let cartCount = document.getElementById("cart-count");
         cartCount += shoppingCart.count();
@@ -109,19 +107,20 @@
 
       setCartCount();
 
-      // Button click to add products
+      // Button onclick to add products
       document.getElementById("btnAddProduct").onclick = function () {
         let productList = document.getElementById("productList");
-        let product = productList.options[productList.selectedIndex];
-
-        if (product.value !== "select") {
-          shoppingCart.add(new Product(product.label, product.value));
+        let product = productList.options[productList.selectedIndex].text;
+        let productValue = productList.options[productList.selectedIndex].value;
+        // alert pop up if product's name and value successful added to the shopping cart
+        if (product !== "--Select--") {
+          shoppingCart.add(new Product(product, productValue));
           setCartCount();
-          window.alert(product.label + " was added to your shopping cart!");
+          window.alert(product + " was added to your shopping cart!");
         }
       };
 
-      // shopping cart icon onclick and display table in shoppingCart ID
+      // when shopping cart icon onclick, then display table in shoppingCart ID
       document.getElementById("cartIcon").onclick = function () {
         let cartDisplayTable = `
               <table class="table">
@@ -132,7 +131,7 @@
                   </tr>
                       <tbody class="table-hover">
               `;
-        for (let product of shoppingCart.iterator()) {
+        for (let product of shoppingCart._products) {
           cartDisplayTable += `
                   <tr>
                       <td>${product.id}</td>

@@ -2,7 +2,7 @@
   Title: shopping-cart.js
   Author: April Yang
   Date: 06/23/2022
-  Description: 
+  Description: Using generators to iterate object
 */
 
 export class ShoppingCart {
@@ -14,23 +14,15 @@ export class ShoppingCart {
     return this._products.length;
   }
 
-  add(products) {
-    this._products.push(products);
+  add(product) {
+    this._products.push(product);
   }
 
   // iterator function that will yield the results of the product array
-  *iterator() {
-    for (let product of this._products) yield product;
-  }
 
-  // iterator
-  // *[Symbol.iterator]() {
-  //   for (let product of products) {
-  //     yield product;
-  //   }
-  // }
-
-  // *[Symbol.iterator]() {
-  //     yield* this.products;
-  // }
+  [Symbol.iterator] = function* () {
+    for (let product of _products) {
+      yield product;
+    }
+  };
 }
