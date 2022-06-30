@@ -1,16 +1,9 @@
-.danger {
-  float: right;
-  color: #df546a;
-  font-size: 12px;
-  letter-spacing: 2px;
-}
-
-.form-label {
-  display: inline-block;
-  padding-top: 1rem;
-}
-
-/* ************************************* */
+/**
+    Title: yang-future-value.css
+    Author: April Yang
+    Date: 6/30/2022
+    Description: Styling for yang-future-value.html 
+ */
 
 
 body {
@@ -168,6 +161,22 @@ h4 {
   background-color: var(--heading-background-color);
   padding: 10px;
   border: 1px solid var(--heading-border-color);
+}
+
+/* ************************************* */
+
+/* styling for week-6 */
+
+.danger {
+  float: right;
+  color: #df546a;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.form-label {
+  display: inline-block;
+  padding-top: 1rem;
 }
 
 
