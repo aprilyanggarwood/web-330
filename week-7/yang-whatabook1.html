@@ -42,7 +42,7 @@
     <div class="assign-container">
       <h1 class="app-header">Welcome to the WhatABook, Part 1 App!</h1>
       <div class="assign-content">
-        <!-- the first card contains a input form -->
+        <!-- the first card contains a book list table -->
         <div class="card-container">
           <div class="card-title">Book Listing</div>
           <div class="card-content" id="bookList">
@@ -54,7 +54,7 @@
         <div class="break"></div>
         <!-- Return link back to the WEB-231 landing page -->
         <a class="return-home" href="../index.html">Return</a>
-        <!-- The second container for Search Results -->
+        <!-- The second container for displaying info of selected book when clicking on each book ISBN number -->
         <div class="assign-content card-container">
           <div class="card-title">Selected Book</div>
           <div class="card-content assign-results-text" id="selectedBook"></div>
@@ -67,19 +67,26 @@
       // Call Css Theme
       setSelectedTheme();
 
+      /* Event handler for DOM loaded  */
       document.addEventListener("DOMContentLoaded", (event) => {
         let fileName = "./books.xml";
+
+        /* fetch xml data */
         fetch(fileName)
+          /* return response as text */
           .then((res) => res.text())
+          /* XML DOM parser for text data*/
           .then((data) => {
             let domParser = new DOMParser();
             let xmlBooks = domParser.parseFromString(data, "text/xml");
 
+            /* Call loadBooks function to load XML data into html table */
             loadBooks(xmlBooks);
-
+            /* Call addIsbnClickEvents function to active books isbn event*/
             addIsbnClickEvents();
           });
 
+        /* Function for building html table from xml data */
         function loadBooks(xml) {
           let books = xml.getElementsByTagName("book");
           let tableData = `
@@ -92,6 +99,8 @@
                 <th>Authors</th>
                 </tr>
             <tbody>`;
+
+          /* Iterates over books */
           for (let book of books) {
             let isbn =
               book.getElementsByTagName("isbn")[0].childNodes[0].nodeValue;
@@ -105,6 +114,7 @@
             let author =
               book.getElementsByTagName("author")[0].childNodes[0].nodeValue;
 
+            /* Creates HTML table */
             tableData += `
                       <tr>
                         <td data-value="ISBN"><a href="#" class="isbn-link">${isbn}</a></td>
@@ -118,15 +128,7 @@
             tableData += `</tbody></table>`;
         }
 
-        function addIsbnClickEvents() {
-          let viewButtons = document.querySelectorAll(
-            "#bookTable tbody .isbn-link"
-          );
-          for (let i = 0; i < viewButtons.length; i++) {
-            viewButtons[i].addEventListener("click", anchorClicked);
-          }
-        }
-
+        /* Generates a list information of selected book data */
         function anchorClicked(e) {
           e.preventDefault();
           let self = this;
@@ -143,6 +145,17 @@
 
           document.getElementById("selectedBook").innerHTML =
             bookData += `</ul>`;
+        }
+
+        /* Click event function for active each book ISBN number to display info of selected book */
+        function addIsbnClickEvents() {
+          let viewButtons = document.querySelectorAll(
+            "#bookTable tbody .isbn-link"
+          );
+          /* iterates over viewButtons Array to add event listener anchorClicked */
+          for (let i = 0; i < viewButtons.length; i++) {
+            viewButtons[i].addEventListener("click", anchorClicked);
+          }
         }
       });
     </script>
