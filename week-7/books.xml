@@ -1,11 +1,3 @@
-<!--
-    Title: books.xml
-    Author: April Yang
-    Date: 7/6/2022
-    Description: Creates books data.
--->
-
-
 <?xml version="1.0" encoding="UTF-8"?>
 <books>
     <book>

@@ -128,25 +128,6 @@
             tableData += `</tbody></table>`;
         }
 
-        /* Generates a list information of selected book data */
-        function anchorClicked(e) {
-          e.preventDefault();
-          let self = this;
-          let cell = self.parentElement;
-          let row = cell.parentElement;
-          let data = row.querySelectorAll("td");
-
-          let bookData = `<ul style="list-style-tpye:none; text-align:left; font-size:1rem;">`;
-
-          for (let field of data) {
-            bookData += `<li><b>${field.dataset.value}:</b>${field.innerText}</li>`;
-            console.log(field);
-          }
-
-          document.getElementById("selectedBook").innerHTML =
-            bookData += `</ul>`;
-        }
-
         /* Click event function for active each book ISBN number to display info of selected book */
         function addIsbnClickEvents() {
           let viewButtons = document.querySelectorAll(
@@ -156,6 +137,25 @@
           for (let i = 0; i < viewButtons.length; i++) {
             viewButtons[i].addEventListener("click", anchorClicked);
           }
+        }
+
+        /* Generates a list information of selected book data */
+        function anchorClicked(e) {
+          e.preventDefault();
+          let self = this;
+          let cell = self.parentElement;
+          let row = cell.parentElement;
+          let data = row.querySelectorAll("td");
+
+          let bookData = `<ul style="list-style-type:none; text-align:left; font-size:1rem;">`;
+
+          for (let field of data) {
+            bookData += `<li><b>${field.dataset.value}:</b>${field.innerText}</li>`;
+            console.log(field);
+          }
+
+          document.getElementById("selectedBook").innerHTML =
+            bookData += `</ul>`;
         }
       });
     </script>
