@@ -1,0 +1,177 @@
+/**
+    Title: yang-whatabook2.css
+    Author: April Yang
+    Date: 7/16/2022
+    Description: Styling for yang-whatabook2.html 
+ */
+
+body{
+    font-family: 'Oswald', Verdana, Arial, sans-serif;
+  }
+
+
+#container {
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 0px;
+    padding: 10px;
+}
+
+/* Styling for toggle icon */
+#icon-mode:hover {
+    cursor: pointer;
+}
+
+#icon-text {
+    padding-left: 10px;
+}
+
+.pull-right {
+    float: right;
+}
+
+/**
+    Styles added per the instructions in the Web 330 HTML, CSS, and JavaScript Requirements document;
+    Exhibit D.
+ */
+.assign-container {
+    
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 0px;
+    padding: 10px;
+}
+
+.assign-content {
+    width: 600px;
+    margin: 3% auto 0;
+}
+
+.assign-results-text {
+    text-align: center;
+    font-size: 28px;
+}
+
+/**
+    Styles added per the requirements in the Web 330 HTML, CSS, and JavaScript Requirements document.
+ */
+.app-header {
+    text-align: center;
+    font-weight: 400;
+    border: none;
+    color: inherit;
+    background-color: inherit;
+    
+}
+
+.return-home {
+    color: #4F3674;
+    text-decoration: none;
+}
+
+.return-home:hover {
+    background-color: #D6A800;
+    color: #4F3674;
+}
+
+.return-home:visited {
+    color: #3c275a;
+}
+
+.form {
+    display: inline-grid;
+    grid-template-columns: auto;
+}
+
+.form-field {
+    padding: 20px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+
+
+/* styling for card */
+
+
+.card-container-menu{
+       background-color: var(--card-background-color);
+    /* Add shadows to cards. */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    text-align: center;   
+    margin-bottom:10px;
+    margin-right:0px;
+    margin-left:0px;
+    
+ 
+
+}
+
+.card-container {
+      background-color: var(--card-background-color);
+    /* Add shadows to cards. */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+   margin-right:10px;
+}
+
+.card-content {
+   
+    text-align: left;
+}
+
+.card-title {
+  color:#4F3674;
+  text-align: center;
+ margin-bottom: 15px;
+ /* color:#4F3674; */
+ font-weight: 400;
+ font-size: 2em;
+ 
+}
+
+
+/* Styling for button */
+.btn {
+    margin-top: 20px;
+    padding: 15px 100px;
+ 
+ 
+    background-color: #4F3674;
+    color: white;
+}
+
+/* Styling card container in grid format */
+.grid-container {
+  display: grid;
+  grid-template-columns:50% 50%;
+  gap: 10px;
+  padding: 10px;
+ 
+}
+
+h2,
+h3,
+h4 {
+  color: var(--heading-color);
+  background-color: var(--heading-background-color);
+  padding: 10px;
+  border: 1px solid var(--heading-border-color);
+}
+
+
+
+#foodList {
+  margin-left: 30px;
+  float: right;
+  color: #df546a;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+li {
+    list-style-type: none;
+}
