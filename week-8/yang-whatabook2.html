@@ -67,12 +67,15 @@
       // Call Css Theme
       setSelectedTheme();
 
+      // Import HttpClient class.
       import { HttpClient } from "./http-client.js";
 
+      // Creates HttpClient object.
       let http = new HttpClient();
 
       let book = {};
 
+      // Set up isbns array.
       const isbns = [
         "0345339681",
         "0261103571",
@@ -85,12 +88,14 @@
         "9780590405959",
       ];
 
+      // Set up params object.
       const params = {
         bibkeys: `ISBN:${isbns.join(",")}`,
         format: "json",
         jscmd: "details",
       };
 
+      // HTTP get function.
       http
         .get("https://openlibrary.org/api/books", params)
         .then((res) => {
@@ -109,6 +114,7 @@
           console.log(e);
         });
 
+      // Creates getBook function.
       function getBook(e) {
         e.preventDefault();
         let self = this;
@@ -121,6 +127,7 @@
           buildHtmlString(object);
       }
 
+      // Builds book HTML table with book information.
       function buildHtmlString(res, format) {
         let tableString = `<table class="table" id="bookTable">
                                 <tr>
@@ -194,6 +201,7 @@
         return ulString;
       }
 
+      // click events for triggering the isbn-link class
       function addIsbnClickEvents() {
         let viewButtons = document.getElementsByClassName("isbn-link");
         for (let i = 0; i < viewButtons.length; i++) {
